@@ -319,7 +319,7 @@ _be01  = cnfgrt ["sltnPrjctId"] + ".a.deployed.arstorms.org"
 _bf01  = cnfgrt ["dnsId"]
 _bf01.insert (0, _be01)
 for domain in _bf01:
-        _ca01 = subprocess.run (["certbot", "certonly", "--nginx", "-n", "-d", domain])
+        _ca01 = subprocess.run (["certbot", "certonly", "--standalone", "-n", "-d", domain])
         if _ca01.returncode != 0:
                 print ("Could not get certificate: {0}".format (domain))
                 sys.exit (1)

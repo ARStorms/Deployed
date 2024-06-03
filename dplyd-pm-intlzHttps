@@ -1,7 +1,8 @@
 #!/bin/sh
+systemctl stop  nginx
 python3 /sbin/dplyd-pm-intlzHttps.py "$1"
 if [ "$?" != 0 ]
 then
          exit
 fi
-nginx -s reload
+systemctl start nginx
